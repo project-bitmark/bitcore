@@ -1,142 +1,106 @@
 Bitcore
 =======
 
-[![Build Status](https://travis-ci.org/bitpay/bitcore.svg?branch=master)](https://travis-ci.org/bitpay/bitcore)
-[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg)](https://coveralls.io/r/bitpay/bitcore)
+[![NPM Package](https://img.shields.io/npm/v/bitcore.svg?style=flat-square)](https://www.npmjs.org/package/bitcore)
+[![Build Status](https://img.shields.io/travis/bitpay/bitcore.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore)
+[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore)
 
-A pure, powerful core for your bitcoin project.
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/maraoz.svg)](https://saucelabs.com/u/maraoz)
 
-Bitcore is a complete, native interface to the Bitcoin network, and provides the core functionality needed to develop apps for bitcoin.
+A pure and powerful JavaScript Bitcoin library.
 
-#Principles
+## Principles
 
 Bitcoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Bitcoin network allows for highly resilient bitcoin infrastructure, and the developer community needs reliable, open-source tools to implement bitcoin apps and services.
 
-**Bitcore unchains developers from fallible, centralized APIs, and provides the tools to interact with the real Bitcoin network.**
-
-#Get Started
-
-Bitcore runs on [node](http://nodejs.org/), and can be installed via [npm](https://npmjs.org/):
+## Get Started
 
 ```
 npm install bitcore
 ```
 
-It is a collection of objects useful to bitcoin applications; class-like idioms are enabled via [Soop](https://github.com/bitpay/soop). In most cases, a developer will require the object's class directly. For instance:
+Using it in Node.js:
 
 ```javascript
 var bitcore = require('bitcore');
-var Address = bitcore.Address;
-var Transaction = bitcore.Transaction;
-var PeerManager = bitcore.PeerManager;
+
+assert(bitcore.Address.isValid('126vMmY1fyznpZiFTTnty3cm1Rw8wuheev'));
+var simpleTx = new bitcore.Transaction();
+var simpleTx.from(unspent).to(address, amount);
+simpleTx.sign(privateKey);
 ```
 
-#Examples
+## Documentation
 
-Examples are provided [here](examples.md)
-Build the examples by installing and running gulp:
+The complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.
 
-```
-npm install -g gulp
-gulp
-```
+[Read the Developer Guide](http://bitcore.io/guide/)
 
-Javascript files available at [/examples](/examples) folder.
+[Read the API Reference](http://bitcore.io/api/)
 
+To get community assistance and ask for help with implementation questions, please use our [community forums](http://bitpaylabs.com/c/bitcore).
 
-#Security
+## Modules
+This module provides bitcoin's core features. Other features and protocol extensions are built into separate modules. Here is a list of official bitcore modules:
 
-Please use at your own risk.
+Module | Version | Building | Coverage
+-------|---------|----------|---------
+[bitcore-payment-protocol](http://github.com/bitpay/bitcore-payment-protocol) | [![NPM Package](https://img.shields.io/npm/v/bitcore-payment-protocol.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-payment-protocol) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-payment-protocol.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-payment-protocol) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-payment-protocol.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-payment-protocol)
+[bitcore-p2p](http://github.com/bitpay/bitcore-p2p) | [![NPM Package](https://img.shields.io/npm/v/bitcore-p2p.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-p2p) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-p2p.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-p2p) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-p2p.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-p2p?branch=master)
+[bitcore-mnemonic](http://github.com/bitpay/bitcore-mnemonic) | [![NPM Package](https://img.shields.io/npm/v/bitcore-mnemonic.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-mnemonic) |  [![Build Status](https://img.shields.io/travis/bitpay/bitcore-mnemonic.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-mnemonic) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-mnemonic.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-mnemonic)
+[bitcore-ecies](http://github.com/bitpay/bitcore-ecies) | [![NPM Package](https://img.shields.io/npm/v/bitcore-ecies.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-ecies) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-ecies.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-ecies) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-ecies.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-ecies)
+[bitcore-channel](http://github.com/bitpay/bitcore-channel) | [![NPM Package](https://img.shields.io/npm/v/bitcore-channel.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-channel) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-channel.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-channel) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-channel.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-channel)
+[bitcore-explorers](http://github.com/bitpay/bitcore-explorers) | [![NPM Package](https://img.shields.io/npm/v/bitcore-explorers.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-explorers) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-explorers.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-explorers) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-explorers.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-explorers)
+[bitcore-message](http://github.com/bitpay/bitcore-message) | [![NPM Package](https://img.shields.io/npm/v/bitcore-message.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-message) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-message.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-message) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-message.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-message)
 
-Bitcore is still under heavy development and not quite ready for "drop-in" production use. If you find a security issue, please email security@bitcore.io.
+## Security
 
-#Contributing
+We're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
 
-Bitcore needs some developer love. Please send pull requests for bug fixes, code optimization, and ideas for improvement.
+If you find a security issue, please email security@bitpay.com.
 
-#Browser support
+## Contributing
 
-## Building the browser bundle
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) file. 
 
-To build bitcore full bundle for the browser (this is automatically executed after you run `npm install`):
+## Building the Browser Bundle
 
-```
-node browser/build.js -a
-```
+To build bitcore full bundle for the browser:
 
-This will generate a `browser/bundle.js` file which you can include in your HTML to use bitcore in the browser.
-
-##Example browser usage
-
-From example/simple.html
-
-```html
-<!DOCTYPE html>
-<html>
-  <body>
-    <script src="../browser/bundle.js"></script>
-    <script>
-      var bitcore = require('bitcore');
-      var Address = bitcore.Address;
-      var a = new Address('1KerhGhLn3SYBEQwby7VyVMWf16fXQUj5d');
-      console.log('1KerhGhLn3SYBEQwby7VyVMWf16fXQUj5d is valid? '+a.isValid());
-    </script>
-  </body>
-</html>
+```sh
+gulp browser
 ```
 
-You can check a more complex usage example at examples/example.html.
-
-## Generating a customized browser bundle
-
-To build the main bitcore bundle, run:
-
-```
-node browser/build.js -m
-```
-
-To build all features into the bitcore bundle (which will lead to a large filesize), run:
-
-```
-node browser/build.js -a
-```
-
-To generate a customized bitcore bundle, you can specify which submodules you want to include in it with the -s option:
-
-```
-node browser/build.js -s lib/Transaction,lib/Address
-```
-
-This will generate a `browser/bundle.js` containing only the Transaction and Address class, with all their dependencies.  Use this option if you are not using the whole bitcore library, to optimize the bundle size, script loading time, and general resource usage.
+This will generate files named `browser/bitcore.js` and `browser/bitcore.min.js`.
 
 ## Tests
 
-Run tests in node:
+Run all the tests:
 
-```
-mocha
-```
-
-Or generate tests in the browser:
-
-```
-grunt shell
+```sh
+gulp test
 ```
 
-And then open test/index.html in your browser.
+Run the NodeJS tests with mocha:
 
-To run the code coverage report:
-
-```
-npm run-script coverage
+```sh
+gulp test:node
 ```
 
-And then open coverage/lcov-report/index.html in your browser.
+Run the browser tests with karma:
 
-#License
+```sh
+gulp test:browser
+```
 
-**Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).**
+Create a test coverage report (you can open `coverage/lcov-report/index.html` to visualize it):
 
-Copyright 2013-2014 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
+```sh
+gulp coverage
+```
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bitpay/bitcore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+## License
+
+Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).
+
+Copyright 2013-2015 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
